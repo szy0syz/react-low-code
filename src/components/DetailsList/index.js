@@ -40,6 +40,7 @@ export function DetailsList() {
   const addCmp = (_cmp) => {
     canvas.addCmp(_cmp);
   };
+  
   return (
     <div className={styles.main}>
       <ul className={styles.box}>

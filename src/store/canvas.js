@@ -38,6 +38,8 @@ const defaultCanvas = {
 export default class Canvas {
   constructor(_canvas = defaultCanvas) {
     this.canvas = _canvas; // 页面数据
+
+    this.listeners = [];
   }
 
   // get
@@ -57,8 +59,27 @@ export default class Canvas {
 
   addCmp = (_cmp) => {
     const cmp = { key: getOnlyKey(), ..._cmp };
+
+    // 1. 更新画布数据
     this.canvas.cmps.push(cmp);
     console.log('this.canvas:', this.canvas);
+
+    // 2. 组件更新
+    this.updateApp();
+  };
+
+  updateApp = () => {
+    // 希望组件更新
+    this.listeners.forEach((lis) => lis());
+  };
+
+  subscribe = (listener) => {
+    this.listeners.push(listener);
+
+    //取消事件
+    return () => {
+      this.listeners = this.listeners.filter((lis) => lis !== listener);
+    };
   };
 
   getPublicCanvas = () => {
@@ -66,10 +87,9 @@ export default class Canvas {
       getCanvas: this.getCanvas,
       getCanvasCmps: this.getCanvasCmps,
       addCmp: this.addCmp,
+      subscribe: this.subscribe,
     };
 
     return obj;
   };
 }
-
-
