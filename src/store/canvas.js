@@ -15,7 +15,7 @@ const defaultCanvas = {
     boxSizing: "content-box",
   },
   // 组件
-  cmps: [],
+  // cmps: [],
 
   // 仅用于测试
   cmps: [
