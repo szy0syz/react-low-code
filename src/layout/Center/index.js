@@ -11,7 +11,7 @@ export default function Center(props) {
     <div className={styles.main}>
       <div className={styles.canvas}>
         {cmps.map((cmp) => (
-          <Cmp key={Cmp.key} cmp={cmp} />
+          <Cmp key={cmp.key} cmp={cmp} />
         ))}
       </div>
     </div>

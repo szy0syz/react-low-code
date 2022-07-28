@@ -11,6 +11,7 @@ specifiers:
   '@testing-library/user-event': ^13.5.0
   '@types/node': '*'
   antd: ^4.18.8
+  classnames: ^2.3.1
   craco-less: ^2.0.0
   css-loader: ^6.7.1
   less: ^4.1.3
@@ -29,6 +30,7 @@ dependencies:
   '@testing-library/react': 12.1.5_sfoxds7t5ydpegc3knd667wn6m
   '@testing-library/user-event': 13.5.0_gwcpuyfvwbszhlmedmugzivgzu
   antd: 4.21.7_sfoxds7t5ydpegc3knd667wn6m
+  classnames: 2.3.1
   craco-less: 2.0.0_ezmzamhjthoohej2ul5jahb6pi
   css-loader: 6.7.1_webpack@5.73.0
   less-loader: 11.0.0_less@4.1.3+webpack@5.73.0
