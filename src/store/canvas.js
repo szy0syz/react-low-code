@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-
 import { getOnlyKey } from '../utils';
 
 const defaultCanvas = {
@@ -37,7 +35,7 @@ const defaultCanvas = {
 };
 
 // 状态
-class Canvas {
+export default class Canvas {
   constructor(_canvas = defaultCanvas) {
     this.canvas = _canvas; // 页面数据
   }
@@ -74,17 +72,4 @@ class Canvas {
   };
 }
 
-export function useCanvas(canvas) {
-  const canvasRef = useRef();
 
-  if (!canvasRef.current) {
-    if (canvas) {
-      canvasRef.current = canvas;
-    } else {
-      const canvas = new Canvas();
-      canvasRef.current = canvas.getPublicCanvas();
-    }
-  }
-
-  return canvasRef.current;
-}

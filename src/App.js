@@ -4,7 +4,7 @@ import Center from './layout/Center';
 import Right from './layout/Right';
 import styles from './App.less';
 
-import { useCanvas } from './store/canvas';
+import { useCanvas } from './store/hooks';
 import { CanvasContext } from './Context';
 
 export default function App(props) {
