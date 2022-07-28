@@ -50,3 +50,5 @@ module.exports = {
   ],
 };
 ```
+
+![layouts](https://user-images.githubusercontent.com/10555820/181425102-fc2039a6-796b-48c2-b33e-a0eb743bf3f9.png)
