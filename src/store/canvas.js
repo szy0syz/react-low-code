@@ -25,11 +25,11 @@ const defaultCanvas = {
       value: "文本",
       style: {
         position: "absolute",
-        top: 0,
+        top: 20,
         left: 0,
         width: 100,
         height: 30,
-        fontSize: 12,
+        fontSize: 16,
         color: "red",
       },
     },

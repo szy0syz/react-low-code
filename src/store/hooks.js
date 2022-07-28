@@ -1,8 +1,8 @@
-import { useContext } from "react/cjs/react.production.min";
+import { useContext } from "react";
 import { CanvasContext } from '../Context';
 
 export function useCanvasData() {
-  const canvas = useContext(CanvasContent)
+  const canvas = useContext(CanvasContext)
 
   return canvas.getCanvas();
 }
