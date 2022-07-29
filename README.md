@@ -1,5 +1,7 @@
 # React-Low-Code
 
+> 尽能力用原生写个低代码拖拽H5。
+
 ## Notes
 
 - 关于脚手架的选择？
@@ -52,3 +54,5 @@ module.exports = {
 ```
 
 ![layouts](https://user-images.githubusercontent.com/10555820/181425102-fc2039a6-796b-48c2-b33e-a0eb743bf3f9.png)
+
+- 有些时候，面对复杂业务，函数组件承载能力的确不如类组件，应该折中考虑，该换就换！

@@ -13,31 +13,16 @@ const defaultCanvas = {
     boxSizing: 'content-box',
   },
   // 组件
-  // cmps: [],
-
-  // 仅用于测试
-  cmps: [
-    {
-      key: getOnlyKey(),
-      desc: '文本',
-      value: '文本',
-      style: {
-        position: 'absolute',
-        top: 20,
-        left: 0,
-        width: 100,
-        height: 30,
-        fontSize: 16,
-        color: 'red',
-      },
-    },
-  ],
+  cmps: [],
 };
 
 // 状态
 export default class Canvas {
   constructor(_canvas = defaultCanvas) {
     this.canvas = _canvas; // 页面数据
+
+    // 被选中的组件的下标
+    this.selectedCmpIndex = null;
 
     this.listeners = [];
   }
@@ -52,6 +37,16 @@ export default class Canvas {
     return [...this.canvas.cmps];
   };
 
+  getSelectorCmp = () => {
+    const cmps = this.getCanvasCmps();
+
+    return cmps[this.selectedCmpIndex];
+  };
+
+  getSelectorCmpIndex = () => {
+    return this.selectedCmpIndex;
+  };
+
   // set
   setCanvas = (_canvas) => {
     Object.assign(this.canvas, _canvas);
@@ -62,9 +57,37 @@ export default class Canvas {
 
     // 1. 更新画布数据
     this.canvas.cmps.push(cmp);
-    console.log('this.canvas:', this.canvas);
 
-    // 2. 组件更新
+    // 2. 设置选中
+    // this.setSelectorCmpIndex(this.canvas.cmps.length - 1);
+    this.selectedCmpIndex = this.canvas.cmps.length - 1;
+
+    // 3. 组件更新
+    this.updateApp();
+  };
+
+  setSelectorCmpIndex = (index) => {
+    if (this.selectedCmpIndex === index) {
+      return;
+    }
+
+    this.selectedCmpIndex = index;
+
+    this.updateApp();
+  };
+
+  updateSelectedCmp = (newStyle = {}, newValue) => {
+    const selectedCmp = this.getSelectorCmp();
+
+    Object.assign(selectedCmp, {
+      style: {
+        ...selectedCmp.style,
+        ...newStyle,
+      },
+      // TODO
+      // value: newValue
+    });
+
     this.updateApp();
   };
 
@@ -88,6 +111,9 @@ export default class Canvas {
       getCanvasCmps: this.getCanvasCmps,
       addCmp: this.addCmp,
       subscribe: this.subscribe,
+      getSelectorCmpIndex: this.getSelectorCmpIndex,
+      setSelectorCmpIndex: this.setSelectorCmpIndex,
+      updateSelectedCmp: this.updateSelectedCmp,
     };
 
     return obj;
