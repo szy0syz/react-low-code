@@ -37,13 +37,13 @@ export default class Canvas {
     return [...this.canvas.cmps];
   };
 
-  getSelectorCmp = () => {
+  getSelectedCmp = () => {
     const cmps = this.getCanvasCmps();
 
     return cmps[this.selectedCmpIndex];
   };
 
-  getSelectorCmpIndex = () => {
+  getSelectedCmpIndex = () => {
     return this.selectedCmpIndex;
   };
 
@@ -66,7 +66,7 @@ export default class Canvas {
     this.updateApp();
   };
 
-  setSelectorCmpIndex = (index) => {
+  setSelectedCmpIndex = (index) => {
     if (this.selectedCmpIndex === index) {
       return;
     }
@@ -77,7 +77,7 @@ export default class Canvas {
   };
 
   updateSelectedCmp = (newStyle = {}, newValue) => {
-    const selectedCmp = this.getSelectorCmp();
+    const selectedCmp = this.getSelectedCmp();
 
     Object.assign(selectedCmp, {
       style: {
@@ -111,8 +111,8 @@ export default class Canvas {
       getCanvasCmps: this.getCanvasCmps,
       addCmp: this.addCmp,
       subscribe: this.subscribe,
-      getSelectorCmpIndex: this.getSelectorCmpIndex,
-      setSelectorCmpIndex: this.setSelectorCmpIndex,
+      getSelectedCmp: this.getSelectedCmp,
+      setSelectedCmpIndex: this.setSelectedCmpIndex,
       updateSelectedCmp: this.updateSelectedCmp,
     };
 
