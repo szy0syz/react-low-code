@@ -1,6 +1,6 @@
 import styles from './index.less';
 import { useCanvasData } from '../../store/hooks';
-import { Cmp } from './Cmp';
+import { Cmp } from '../../components/Cmp';
 
 export default function Center(props) {
   const canvas = useCanvasData();

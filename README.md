@@ -56,3 +56,5 @@ module.exports = {
 ![layouts](https://user-images.githubusercontent.com/10555820/181425102-fc2039a6-796b-48c2-b33e-a0eb743bf3f9.png)
 
 - 有些时候，面对复杂业务，函数组件承载能力的确不如类组件，应该折中考虑，该换就换！
+  - 例如当前函数组件Cmp，如果去做 拖拽、删除、改变层级关系就很啰嗦
+- 当前 `Cmp` 组件还放在 layous 下，为保障层级关系的精简，还是把它移动到 components 下吧
