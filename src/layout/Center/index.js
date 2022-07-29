@@ -7,7 +7,7 @@ export default function Center(props) {
   const canvas = useCanvasByContext();
   const canvasData = canvas.getCanvas();
 
-  const { style, cmps } = canvasData;
+  const { cmps } = canvasData;
 
   const onDrop = useCallback((e) => {
     const endX = e.pageX;
