@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import styles from './index.less';
 import { useCanvasByContext } from '../../store/hooks';
-import Cmp from '../../components/Cmp';
+import { Cmp }  from '../../components/Cmp';
 
 export default function Center(props) {
   const canvas = useCanvasByContext();
