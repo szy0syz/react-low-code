@@ -112,6 +112,7 @@ export default class Canvas {
       addCmp: this.addCmp,
       subscribe: this.subscribe,
       getSelectedCmp: this.getSelectedCmp,
+      getSelectedCmpIndex: this.getSelectedCmpIndex,
       setSelectedCmpIndex: this.setSelectedCmpIndex,
       updateSelectedCmp: this.updateSelectedCmp,
     };

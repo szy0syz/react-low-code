@@ -32,11 +32,13 @@ export default function Center(props) {
     e.preventDefault();
   }, []);
 
+  const selectedIndex = canvas.getSelectedCmpIndex();
+
   return (
     <div className={styles.main}>
       <div className={styles.canvas} onDrop={onDrop} onDragOver={allowDrop}>
-        {cmps.map((cmp) => (
-          <Cmp key={cmp.key} cmp={cmp} />
+        {cmps.map((cmp,index) => (
+          <Cmp key={cmp.key} cmp={cmp} index={index} selected={selectedIndex === index} />
         ))}
       </div>
     </div>
