@@ -36,7 +36,10 @@ export function Center(props) {
 
   return (
     <div className={styles.main}>
-      <div className={styles.canvas} onDrop={onDrop} onDragOver={allowDrop}>
+      <div className={styles.canvas} style={{
+        ...canvasData.style,
+        backgroundImage: `url(${canvasData.style.backgroundImage})`
+      }} onDrop={onDrop} onDragOver={allowDrop}>
         {cmps.map((cmp,index) => (
           <Cmp key={cmp.key} cmp={cmp} index={index} selected={selectedIndex === index} />
         ))}

@@ -91,6 +91,15 @@ export default class Canvas {
     this.updateApp();
   };
 
+  updateCanvasStyle = (newStyle) => {
+    this.canvas.style = {
+      ...this.canvas.style,
+      ...newStyle,
+    }
+
+    this.updateApp();
+  }
+
   updateApp = () => {
     // 希望组件更新
     this.listeners.forEach((lis) => lis());
@@ -115,6 +124,7 @@ export default class Canvas {
       getSelectedCmpIndex: this.getSelectedCmpIndex,
       setSelectedCmpIndex: this.setSelectedCmpIndex,
       updateSelectedCmp: this.updateSelectedCmp,
+      updateCanvasStyle: this.updateCanvasStyle,
     };
 
     return obj;
