@@ -86,7 +86,7 @@ export default class Canvas {
       };
     }
 
-    if (newValue != undefined) {
+    if (newValue !== undefined) {
       this.canvas.cmps[this.getSelectedCmpIndex()].value = newValue;
     }
 

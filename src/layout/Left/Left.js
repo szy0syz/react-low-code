@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState, useEffect} from "react";
 import cls from 'classnames';
 
 import styles from './index.less';
@@ -19,6 +19,12 @@ export function Left(props) {
       setShowSide(which);
     }
   };
+
+  useEffect(() => {
+    document.getElementById("center").addEventListener("click", () => {
+      setShowSide(0);
+    });
+  }, []);
 
   return (
     <div className={styles.main}>

@@ -33,7 +33,7 @@ export function EditCmp(props) {
         />
       </Item>
 
-      {style.fontSize != undefined && (
+      {style.fontSize !== undefined && (
         <Item label="字体大小: ">
           <input
             type="number"
@@ -49,7 +49,7 @@ export function EditCmp(props) {
         </Item>
       )}
 
-      {style.fontWeight != undefined && (
+      {style.fontWeight !== undefined && (
         <Item label="字体粗细: ">
           <select
             className={styles.itemRight}
@@ -68,7 +68,7 @@ export function EditCmp(props) {
         </Item>
       )}
 
-      {style.lineHeight != undefined && (
+      {style.lineHeight !== undefined && (
         <Item label="行高: ">
           <input
             type="number"

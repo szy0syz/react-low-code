@@ -11,7 +11,7 @@ export class Cmp extends Component {
   static contextType = CanvasContext;
 
   onDragStart = (e) => {
-    this.setSelected();
+    this.setSelected(e);
 
     const startX = e.pageX;
     const startY = e.pageY;
@@ -19,7 +19,8 @@ export class Cmp extends Component {
     e.dataTransfer.setData('text', `${startX},${startY}`);
   };
 
-  setSelected = () => {
+  setSelected = (e) => {
+    e.stopPropagation();
     const { index } = this.props;
     this.context.setSelectedCmpIndex(index);
   };
