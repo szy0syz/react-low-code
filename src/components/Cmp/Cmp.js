@@ -79,12 +79,54 @@ export class Cmp extends Component {
     document.addEventListener('mouseup', up);
   };
 
+  rotate = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    const { style } = this.props.cmp;
+    const { height, transform } = style;
+    const trans = parseFloat(transform);
+
+    const r = height / 2;
+
+    const ang = ((trans + 90) * Math.PI) / 180;
+
+    const [offsetX, offsetY] = [-Math.cos(ang) * r, -Math.sin(ang) * r];
+
+    let startX = e.pageX + offsetX;
+    let startY = e.pageY + offsetY;
+
+    const move = (e) => {
+      let x = e.pageX;
+      let y = e.pageY;
+
+      let disX = x - startX;
+      let disY = y - startY;
+
+      let deg = (360 * Math.atan2(disY, disX)) / (2 * Math.PI) - 90;
+
+      deg = deg.toFixed(2);
+
+      this.context.updateSelectedCmp({
+        transform: deg,
+      });
+    };
+
+    const up = () => {
+      document.removeEventListener('mousemove', move);
+      document.removeEventListener('mouseup', up);
+    };
+
+    document.addEventListener('mousemove', move);
+    document.addEventListener('mouseup', up);
+  };
+
   render() {
     const { cmp, selected } = this.props;
     const { style } = cmp;
 
     const { width, height } = style;
-    const transform = `rotate(${style.transform}deg)`
+    const transform = `rotate(${style.transform}deg)`;
 
     return (
       <div
@@ -94,7 +136,7 @@ export class Cmp extends Component {
         onClick={this.setSelected}
       >
         {/* 组件本身 */}
-        <div className={style.cmp} style={{...style, transform}}>
+        <div className={style.cmp} style={{ ...style, transform }}>
           {getCmp(cmp)}
         </div>
 
@@ -109,7 +151,7 @@ export class Cmp extends Component {
             left: style.left - 2,
             width: style.width,
             height: style.height,
-            transform
+            transform,
           }}
           onMouseDown={this.onMouseDown}
         >
@@ -173,6 +215,15 @@ export class Cmp extends Component {
               left: -8,
             }}
             data-direction="left"
+          />
+
+          <li
+            className={cls(styles.rotate, 'iconfont icon-xuanzhuan')}
+            style={{
+              top: height + 12,
+              left: width / 2 - 12,
+            }}
+            onMouseDown={this.rotate}
           />
         </ul>
       </div>
