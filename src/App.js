@@ -1,7 +1,7 @@
 import { useReducer, useEffect } from 'react';
 
 import Header from './layout/Header';
-import Left from './layout/Left';
+import { Left } from './layout/Left';
 import Center from './layout/Center';
 import Right from './layout/Right';
 import styles from './App.less';
@@ -19,7 +19,7 @@ export default function App(props) {
 
     return () => {
       unsubscribe();
-    }
+    };
   }, []);
 
   return (

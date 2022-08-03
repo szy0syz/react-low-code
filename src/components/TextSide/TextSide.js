@@ -1,3 +1,4 @@
+import { IsTextComponent } from "../../layout/Left/Left";
 import { useCanvasByContext } from "../../store/hooks";
 import styles from "./index.less";
 
@@ -35,7 +36,7 @@ const settings = [
   },
 ];
 
-export function DetailsList() {
+export function TextSide() {
   const canvas = useCanvasByContext();
   const addCmp = (_cmp) => {
     canvas.addCmp(_cmp);
@@ -48,7 +49,7 @@ export function DetailsList() {
           <li
             key={item.value}
             className={styles.item}
-            onClick={() => addCmp({ ...item })}
+            onClick={() => addCmp({ ...item, type: IsTextComponent })}
           >
             {item.value}
           </li>

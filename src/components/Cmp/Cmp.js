@@ -3,6 +3,9 @@ import cls from 'classnames';
 
 import styles from './index.less';
 import { CanvasContext } from '../../Context';
+import { IsTextComponent, IsImgComponent } from '../../layout/Left';
+import { Text } from '../Text';
+import { Img } from '../Img';
 
 export class Cmp extends Component {
   static contextType = CanvasContext;
@@ -90,7 +93,7 @@ export class Cmp extends Component {
       >
         {/* 组件本身 */}
         <div className={style.cmp} style={style}>
-          {value}
+          {getCmp(cmp)}
         </div>
 
         {/* 组件的功能、选种样式 */}
@@ -171,5 +174,16 @@ export class Cmp extends Component {
         </ul>
       </div>
     );
+  }
+}
+
+function getCmp(cmp) {
+  switch (cmp.type) {
+    case IsTextComponent:
+      return <Text {...cmp} />;
+    case IsImgComponent:
+      return <Img {...cmp} />;
+    default:
+      break;
   }
 }
