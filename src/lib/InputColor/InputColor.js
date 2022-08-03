@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { SketchPicker } from 'react-color';
 
-export default function InputColor({ onChangeComplete, color, ...rest }) {
+export function InputColor({ onChangeComplete, color, ...rest }) {
   const [visible, setVisible] = useState(false);
   return (
     <div

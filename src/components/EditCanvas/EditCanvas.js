@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InputColor from "@/lib/InputColor";
+import {InputColor} from "@/lib/InputColor";
 import styles from './index.less';
 import { useCanvasByContext } from '@/store/hooks';
 
