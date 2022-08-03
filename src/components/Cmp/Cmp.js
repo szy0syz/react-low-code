@@ -81,9 +81,10 @@ export class Cmp extends Component {
 
   render() {
     const { cmp, selected } = this.props;
-    const { style, value } = cmp;
+    const { style } = cmp;
 
     const { width, height } = style;
+    const transform = `rotate(${style.transform}deg)`
 
     return (
       <div
@@ -93,7 +94,7 @@ export class Cmp extends Component {
         onClick={this.setSelected}
       >
         {/* 组件本身 */}
-        <div className={style.cmp} style={style}>
+        <div className={style.cmp} style={{...style, transform}}>
           {getCmp(cmp)}
         </div>
 
@@ -108,6 +109,7 @@ export class Cmp extends Component {
             left: style.left - 2,
             width: style.width,
             height: style.height,
+            transform
           }}
           onMouseDown={this.onMouseDown}
         >
