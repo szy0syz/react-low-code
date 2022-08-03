@@ -1,3 +1,2 @@
-export function getOnlyKey() {
-  return Math.random();
-}
+export * from './const';
+export * from './getOnlyKey'
