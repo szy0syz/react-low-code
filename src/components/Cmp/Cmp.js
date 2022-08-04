@@ -69,13 +69,14 @@ export class Cmp extends Component {
 
       if (cmp.style.fontSize) {
         // 文本组件的行高和字体大小动态变化
-        const n = newHeight /cmp.style.height;
-        let newFontSize = n*cmp.style.fontSize;
-        newFontSize = newFontSize < 12 ? 12 : newFontSize > 130 ? 130 :newFontSize;
+        const n = newHeight / cmp.style.height;
+        let newFontSize = n * cmp.style.fontSize;
+        newFontSize =
+          newFontSize < 12 ? 12 : newFontSize > 130 ? 130 : newFontSize;
 
         Object.assign(newStyle, {
           lineHeight: newHeight + 'px',
-          fontSize: newFontSize
+          fontSize: newFontSize,
         });
       }
 
@@ -100,7 +101,7 @@ export class Cmp extends Component {
     const { style } = this.props.cmp;
     const { height, transform } = style;
     const trans = parseFloat(transform);
-
+    debugger;
     const r = height / 2;
 
     const ang = ((trans + 90) * Math.PI) / 180;
@@ -117,6 +118,9 @@ export class Cmp extends Component {
       let disX = x - startX;
       let disY = y - startY;
 
+      // atan2 返回的是弧度 返回0 ~ π/2
+      // tanA = 3/2 => α = atan(3,2) => A = atan2(3/2)*180/π
+      // deg = atan2(disY, disX)*180/π - 90
       let deg = (360 * Math.atan2(disY, disX)) / (2 * Math.PI) - 90;
 
       deg = deg.toFixed(2);
