@@ -60,10 +60,24 @@ export class Cmp extends Component {
         }
       }
 
+      const newHeight = cmp.style.height + disY;
+
       Object.assign(newStyle, {
         width: cmp.style.width + disX,
-        height: cmp.style.height + disY,
+        height: newHeight,
       });
+
+      if (cmp.style.fontSize) {
+        // 文本组件的行高和字体大小动态变化
+        const n = newHeight /cmp.style.height;
+        let newFontSize = n*cmp.style.fontSize;
+        newFontSize = newFontSize < 12 ? 12 : newFontSize > 130 ? 130 :newFontSize;
+
+        Object.assign(newStyle, {
+          lineHeight: newHeight + 'px',
+          fontSize: newFontSize
+        });
+      }
 
       this.context.updateSelectedCmp(newStyle);
 
